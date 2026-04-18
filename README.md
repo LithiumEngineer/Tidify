@@ -29,4 +29,4 @@ Electron, React, TypeScript, Tailwind, shadcn/ui, Python, FastAPI, ONNX Runtime,
 
 ## Disclaimer
 
-This project is a work in progress. While all deletions go to Trash by default, use at your own risk. I am not responsible for any data or file loss.
+This project is a work in progress. While all deletions go to Trash by default, use at your own risk. The author is not responsible for any data or file loss.
