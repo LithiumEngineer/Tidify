@@ -163,9 +163,9 @@ export function PhotoDedup(): React.ReactElement {
             </Button>
           </div>
 
-          <div className="flex items-center gap-4">
-            <label className="text-sm font-medium w-20 shrink-0">Sensitivity</label>
-            <span className="text-xs text-muted-foreground w-12">Loose</span>
+          <div className="flex items-center gap-3">
+            <label className="text-xs text-muted-foreground shrink-0">Sensitivity</label>
+            <span className="text-[10px] text-muted-foreground/60">Loose</span>
             <input
               type="range"
               min={0}
@@ -173,10 +173,10 @@ export function PhotoDedup(): React.ReactElement {
               value={sensitivity}
               onChange={(e) => setSensitivity(Number(e.target.value))}
               disabled={scanning}
-              className="flex-1 h-2 accent-primary"
+              className="w-32 h-1.5 accent-primary"
             />
-            <span className="text-xs text-muted-foreground w-12 text-right">Strict</span>
-            <span className="text-sm font-mono text-muted-foreground w-8 text-right">
+            <span className="text-[10px] text-muted-foreground/60">Strict</span>
+            <span className="text-xs text-muted-foreground w-6 text-right tabular-nums tracking-tight">
               {sensitivity}
             </span>
           </div>

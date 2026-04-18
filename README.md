@@ -1,6 +1,8 @@
 # Tidify
 
-Finds duplicate photos on your computer. Pick a folder to scan everything and group similar images together so you can clean up duplicated photos. 
+Finds duplicate photos on your computer. Pick a folder to scan everything and group similar images together so you can clean up duplicated photos.
+
+![Tidify](app-demo-image.png)
 
 ## How it works
 
@@ -24,3 +26,7 @@ The ML model (~10 MB) downloads on first scan.
 ## Tech stack
 
 Electron, React, TypeScript, Tailwind, shadcn/ui, Python, FastAPI, ONNX Runtime, MobileNetV3, FAISS, OpenCV, Pillow, Send2Trash.
+
+## Disclaimer
+
+This project is a work in progress. While all deletions go to Trash by default, use at your own risk. I am not responsible for any data or file loss.

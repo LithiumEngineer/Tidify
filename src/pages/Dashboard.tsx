@@ -78,16 +78,16 @@ export function Dashboard(): React.ReactElement {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="opacity-50">
           <CardHeader>
-            <CardTitle>Downloads Cleanup</CardTitle>
+            <CardTitle>Downloads Cleanup (WIP)</CardTitle>
             <CardDescription>
               Use AI to classify and organize files in your Downloads folder. Get smart suggestions
               for where to move or delete files.
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button onClick={() => navigate('/downloads')}>Open Downloads Cleanup</Button>
+            <Button disabled>Coming Soon</Button>
           </CardContent>
         </Card>
       </div>
