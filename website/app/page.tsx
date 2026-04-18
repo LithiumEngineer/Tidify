@@ -62,9 +62,12 @@ function Hero() {
       <div className="hero-glow" />
       <div className="relative max-w-4xl mx-auto px-6 pt-36 pb-24 text-center">
         <div className="fade-in">
-          <h1 className="text-5xl sm:text-7xl font-bold tracking-tight leading-[1.05] text-zinc-900">
-            Tidify
-          </h1>
+          <div className="flex items-center justify-center gap-4 mb-1">
+            <img src="/logo.png" alt="Tidify logo" className="h-16 sm:h-20 w-auto" />
+            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight leading-[1.05] text-zinc-900">
+              Tidify
+            </h1>
+          </div>
           <p className="mt-6 text-lg text-zinc-500 max-w-xl mx-auto leading-relaxed font-light">
             Find and remove duplicate photos on your computer.
           </p>
