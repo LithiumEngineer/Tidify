@@ -1,19 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
 import {
-  Github,
+  Award,
+  Cpu,
+  Crop,
   Download,
   FolderOpen,
+  Github,
+  ImageIcon,
+  Shield,
+  SlidersHorizontal,
   Sparkles,
   Trash2,
-  SlidersHorizontal,
-  Award,
-  Crop,
-  Shield,
-  Cpu,
-  ImageIcon,
 } from "lucide-react";
+import { useEffect } from "react";
 
 const GITHUB_URL = "https://github.com/LithiumEngineer/Tidify";
 const DOWNLOAD_URL =
@@ -66,7 +66,11 @@ function Hero() {
       <div className="relative max-w-4xl mx-auto px-6 pt-36 pb-24 text-center">
         <div className="fade-in">
           <div className="flex items-center justify-center gap-4 mb-1">
-            <img src="/logo.png" alt="Tidify logo" className="h-16 sm:h-20 w-auto" />
+            <img
+              src="/logo.png"
+              alt="Tidify logo"
+              className="h-16 sm:h-20 w-auto"
+            />
             <h1 className="text-5xl sm:text-7xl font-bold tracking-tight leading-[1.05] text-zinc-900">
               Tidify
             </h1>
@@ -177,19 +181,21 @@ function TechOverview() {
           <p>
             Each photo is run through a small CNN (MobileNetV3) locally on your
             machine to produce a feature embedding — a vector that captures the
-            visual content of an image rather than its raw pixels.
+            visual content of an image.
           </p>
           <p>
-            These vectors are L2-normalized and indexed with FAISS. Cosine
-            similarity between any two vectors determines how alike they are.
-            Pairs above a threshold are grouped as duplicates using Union-Find.
-            A sensitivity slider lets you tune how strict the matching is.
-          </p>
-          <p>
-            Before embedding, a content-aware autocrop uses edge detection to
-            strip whitespace and borders — so the same photo with different
-            padding still matches. Within each group, images are ranked by
-            resolution, sharpness, and file size to surface the best version.
+            These vectors are L2-normalized and indexed with{" "}
+            <a
+              href="https://github.com/facebookresearch/faiss"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-zinc-700 transition-colors duration-300"
+            >
+              FAISS
+            </a>{" "}
+            (Facebook AI Similarity Search). Cosine similarity between any two
+            vectors determines how alike they are. Pairs above a threshold are
+            grouped as duplicates using Union-Find.
           </p>
         </div>
 
