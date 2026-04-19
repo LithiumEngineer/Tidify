@@ -1,14 +1,13 @@
 import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
 import { join } from 'path'
-import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { ChildProcess, spawn } from 'child_process'
 
 let pythonProcess: ChildProcess | null = null
 const BACKEND_PORT = 18457
+const isDev = !app.isPackaged
 
 function startPythonBackend(): void {
-  // In dev mode, runAll.sh starts the backend — don't spawn a second one
-  if (is.dev) return
+  if (isDev) return
 
   const backendPath = join(process.resourcesPath, 'backend/main.py')
   const pythonCmd = join(process.resourcesPath, 'python/bin/python3')
@@ -67,7 +66,7 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
-  if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
+  if (isDev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
@@ -75,11 +74,7 @@ function createWindow(): void {
 }
 
 app.whenReady().then(() => {
-  electronApp.setAppUserModelId('com.tidify')
-
-  app.on('browser-window-created', (_, window) => {
-    optimizer.watchWindowShortcuts(window)
-  })
+  app.setAppUserModelId?.('com.tidify')
 
   ipcMain.handle('dialog:openDirectory', async () => {
     const result = await dialog.showOpenDialog({

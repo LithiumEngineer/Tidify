@@ -22,6 +22,9 @@ trap cleanup SIGINT SIGTERM
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
+# Cursor sets this, which prevents Electron from initializing its APIs
+unset ELECTRON_RUN_AS_NODE
+
 # Kill anything already on the backend port
 EXISTING_PID=$(lsof -ti:"$BACKEND_PORT" 2>/dev/null)
 if [ -n "$EXISTING_PID" ]; then
