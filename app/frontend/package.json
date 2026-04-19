@@ -1,5 +1,5 @@
 {
-  "name": "tidify",
+  "name": "dedupify",
   "version": "0.1.0",
   "description": "Desktop app for photo deduplication and AI-powered downloads cleanup",
   "main": "./out/main/index.js",
@@ -12,8 +12,8 @@
     "package": "electron-vite build && electron-builder --mac"
   },
   "build": {
-    "appId": "com.tidify.app",
-    "productName": "Tidify",
+    "appId": "com.dedupify.app",
+    "productName": "Dedupify",
     "mac": {
       "category": "public.app-category.photography",
       "target": {
@@ -23,7 +23,7 @@
       "icon": "build/icon.icns"
     },
     "dmg": {
-      "title": "Tidify",
+      "title": "Dedupify",
       "contents": [
         { "x": 130, "y": 220 },
         { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
@@ -31,7 +31,7 @@
     },
     "extraResources": [
       {
-        "from": "../backend/dist/tidify-backend",
+        "from": "../backend/dist/dedupify-backend",
         "to": "backend"
       }
     ],

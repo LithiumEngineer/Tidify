@@ -9,11 +9,11 @@ const isDev = !app.isPackaged
 function startPythonBackend(): void {
   if (isDev) return
 
-  const backendBin = join(process.resourcesPath, 'backend', 'tidify-backend')
+  const backendBin = join(process.resourcesPath, 'backend', 'dedupify-backend')
 
   pythonProcess = spawn(backendBin, ['--port', String(BACKEND_PORT)], {
     stdio: ['pipe', 'pipe', 'pipe'],
-    env: { ...process.env, TIDIFY_PORT: String(BACKEND_PORT) },
+    env: { ...process.env, DEDUPIFY_PORT: String(BACKEND_PORT) },
   })
 
   pythonProcess.stdout?.on('data', (data) => {
@@ -73,7 +73,7 @@ function createWindow(): void {
 }
 
 app.whenReady().then(() => {
-  app.setAppUserModelId?.('com.tidify')
+  app.setAppUserModelId?.('com.dedupify')
 
   ipcMain.handle('dialog:openDirectory', async () => {
     const result = await dialog.showOpenDialog({

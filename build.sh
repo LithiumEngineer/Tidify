@@ -3,7 +3,7 @@ set -e
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "=== Building Tidify ==="
+echo "=== Building Dedupify ==="
 echo ""
 
 # Step 1: Freeze the Python backend with PyInstaller
@@ -11,9 +11,9 @@ echo "[1/3] Building Python backend..."
 cd "$DIR/app/backend"
 source .venv/bin/activate
 pip install pyinstaller -q
-pyinstaller tidify-backend.spec --clean --noconfirm
+pyinstaller dedupify-backend.spec --clean --noconfirm
 deactivate
-echo "Backend binary: $(ls -lh dist/tidify-backend | awk '{print $5}')"
+echo "Backend binary: $(ls -lh dist/dedupify-backend | awk '{print $5}')"
 echo ""
 
 # Step 2: Build the Electron frontend

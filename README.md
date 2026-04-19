@@ -1,8 +1,8 @@
-# Tidify
+# Dedupify
 
 Finds duplicate photos on your computer. Pick a folder to scan everything and group similar images together so you can clean up duplicated photos.
 
-![Tidify](app-demo-image.png)
+![Dedupify](app-demo-image.png)
 
 ## How it works
 

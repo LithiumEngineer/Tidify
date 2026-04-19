@@ -8,7 +8,7 @@ import numpy as np
 import onnxruntime as ort
 from PIL import Image
 
-MODEL_DIR = Path.home() / ".tidify" / "models"
+MODEL_DIR = Path.home() / ".dedupify" / "models"
 MODEL_PATH = MODEL_DIR / "mobilenetv3_small.onnx"
 MODEL_URL = "https://huggingface.co/EclipseAidge/mobilenet_v3/resolve/main/MobileNet-v3-Small.onnx?download=true"
 

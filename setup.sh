@@ -3,7 +3,7 @@ set -e
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "=== Installing Tidify ==="
+echo "=== Installing Dedupify ==="
 echo ""
 
 # Check prerequisites

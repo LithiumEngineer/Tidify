@@ -6,9 +6,11 @@ import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 import { photosApi } from '@/api/client'
 import { cn, formatBytes } from '@/lib/utils'
+import { useScanStats } from '@/context/ScanStatsContext'
 import type { PhotoGroup, ScanProgress } from '@/types'
 
 export function PhotoDedup(): React.ReactElement {
+  const { recordScan } = useScanStats()
   const [directory, setDirectory] = useState<string | null>(null)
   const [sensitivity, setSensitivity] = useState(90)
   const [scanning, setScanning] = useState(false)
@@ -29,29 +31,34 @@ export function PhotoDedup(): React.ReactElement {
     if (dir) setDirectory(dir)
   }, [])
 
-  const loadGroups = useCallback(async (id: string): Promise<void> => {
-    try {
-      const progressStatus = await photosApi.progress(id)
-      setTotalScanned(progressStatus.total)
+  const loadGroups = useCallback(
+    async (id: string): Promise<void> => {
+      try {
+        const progressStatus = await photosApi.progress(id)
+        setTotalScanned(progressStatus.total)
 
-      const result = await photosApi.getGroups(id)
-      setGroups(result.groups)
+        const result = await photosApi.getGroups(id)
+        setGroups(result.groups)
 
-      const toDelete = new Set<string>()
-      for (const group of result.groups) {
-        group.photos.forEach((photo, idx) => {
-          if (idx !== group.bestIndex) {
-            toDelete.add(photo.path)
-          }
-        })
+        const toDelete = new Set<string>()
+        for (const group of result.groups) {
+          group.photos.forEach((photo, idx) => {
+            if (idx !== group.bestIndex) {
+              toDelete.add(photo.path)
+            }
+          })
+        }
+        setMarkedForDeletion(toDelete)
+
+        recordScan()
+      } finally {
+        setScanning(false)
+        setScanComplete(true)
+        setProgress(null)
       }
-      setMarkedForDeletion(toDelete)
-    } finally {
-      setScanning(false)
-      setScanComplete(true)
-      setProgress(null)
-    }
-  }, [])
+    },
+    [recordScan]
+  )
 
   const handleScan = useCallback(async () => {
     if (!directory) return

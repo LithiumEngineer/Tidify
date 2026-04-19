@@ -15,9 +15,9 @@ import {
 } from "lucide-react";
 import { useEffect } from "react";
 
-const GITHUB_URL = "https://github.com/LithiumEngineer/Tidify";
+const GITHUB_URL = "https://github.com/LithiumEngineer/Dedupify";
 const DOWNLOAD_URL =
-  "https://github.com/LithiumEngineer/Tidify/releases/latest/download/Tidify-0.1.0-arm64.dmg";
+  "https://github.com/LithiumEngineer/Dedupify/releases/latest/download/Dedupify-0.1.0-arm64.dmg";
 
 function useFadeIn() {
   useEffect(() => {
@@ -68,11 +68,11 @@ function Hero() {
           <div className="flex items-center justify-center gap-4 mb-1">
             <img
               src="/logo.png"
-              alt="Tidify logo"
+              alt="Dedupify logo"
               className="h-16 sm:h-20 w-auto"
             />
             <h1 className="text-5xl sm:text-7xl font-bold tracking-tight leading-[1.05] text-zinc-900">
-              Tidify
+              Dedupify
             </h1>
           </div>
           <p className="mt-6 text-lg text-zinc-500 max-w-xl mx-auto leading-relaxed font-light">
@@ -102,7 +102,7 @@ function Hero() {
           <div className="screenshot-shadow screenshot-hover rounded-2xl overflow-hidden bg-zinc-900 p-2 pt-0">
             <img
               src="/app-demo-image.png"
-              alt="Tidify app screenshot"
+              alt="Dedupify app screenshot"
               width={3024}
               height={1964}
               className="w-full h-auto block rounded-b-lg"

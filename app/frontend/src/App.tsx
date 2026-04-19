@@ -4,6 +4,7 @@ import { Sidebar } from './components/Sidebar'
 import { Dashboard } from './pages/Dashboard'
 import { PhotoDedup } from './pages/PhotoDedup'
 import { DownloadsCleanup } from './pages/DownloadsCleanup'
+import { ScanStatsProvider } from './context/ScanStatsContext'
 import { initApiClient, healthApi } from './api/client'
 
 export default function App(): React.ReactElement {
@@ -46,11 +47,13 @@ export default function App(): React.ReactElement {
               </div>
             </div>
           ) : (
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/photos" element={<PhotoDedup />} />
-              <Route path="/downloads" element={<DownloadsCleanup />} />
-            </Routes>
+            <ScanStatsProvider>
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/photos" element={<PhotoDedup />} />
+                <Route path="/downloads" element={<DownloadsCleanup />} />
+              </Routes>
+            </ScanStatsProvider>
           )}
         </div>
       </main>

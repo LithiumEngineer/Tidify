@@ -16,8 +16,8 @@ export function Sidebar(): React.ReactElement {
   return (
     <aside className="w-56 flex flex-col border-r bg-card">
       <div className="drag-region h-12 flex items-center pl-[90px] pr-5 border-b">
-        <img src={logoImg} alt="Tidify logo" className="no-drag h-4 w-auto" />
-        <h1 className="no-drag text-base font-bold tracking-tight ml-2">Tidify</h1>
+        <img src={logoImg} alt="Dedupify logo" className="no-drag h-4 w-auto" />
+        <h1 className="no-drag text-base font-bold tracking-tight ml-2">Dedupify</h1>
       </div>
 
       <nav className="flex-1 p-3 space-y-1">
@@ -67,7 +67,7 @@ export function Sidebar(): React.ReactElement {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
           <div className="bg-card border rounded-xl shadow-lg w-[420px] max-h-[80vh] overflow-y-auto">
             <div className="flex items-center justify-between p-4 border-b">
-              <h2 className="font-semibold">About Tidify</h2>
+              <h2 className="font-semibold">About Dedupify</h2>
               <button
                 onClick={() => setShowInfo(false)}
                 className="text-muted-foreground hover:text-foreground"

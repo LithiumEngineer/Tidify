@@ -5,7 +5,7 @@ from pathlib import Path
 
 from send2trash import send2trash
 
-ACTION_LOG_DIR = Path.home() / ".tidify"
+ACTION_LOG_DIR = Path.home() / ".dedupify"
 ACTION_LOG_FILE = ACTION_LOG_DIR / "actions.log"
 
 IMAGE_EXTENSIONS = {

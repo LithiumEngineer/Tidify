@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from routers import downloads, photos
 
-app = FastAPI(title="Tidify Backend", version="0.1.0")
+app = FastAPI(title="Dedupify Backend", version="0.1.0")
 
 app.add_middleware(
     CORSMiddleware,
