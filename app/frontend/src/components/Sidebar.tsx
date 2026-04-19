@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { LayoutDashboard, Images, FolderDown, Info, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import logoImg from '@/assets/logo.png'
 
 const navItems = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard, disabled: false },
@@ -14,8 +15,9 @@ export function Sidebar(): React.ReactElement {
 
   return (
     <aside className="w-56 flex flex-col border-r bg-card">
-      <div className="drag-region h-12 flex items-center pl-[78px] pr-5 border-b">
-        <h1 className="no-drag text-base font-bold tracking-tight">Tidify</h1>
+      <div className="drag-region h-12 flex items-center pl-[90px] pr-5 border-b">
+        <img src={logoImg} alt="Tidify logo" className="no-drag h-4 w-auto" />
+        <h1 className="no-drag text-base font-bold tracking-tight ml-2">Tidify</h1>
       </div>
 
       <nav className="flex-1 p-3 space-y-1">
