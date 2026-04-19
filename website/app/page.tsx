@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import {
   Github,
+  Download,
   FolderOpen,
   Sparkles,
   Trash2,
@@ -15,6 +16,8 @@ import {
 } from "lucide-react";
 
 const GITHUB_URL = "https://github.com/LithiumEngineer/Tidify";
+const DOWNLOAD_URL =
+  "https://github.com/LithiumEngineer/Tidify/releases/latest/download/Tidify-0.1.0-arm64.dmg";
 
 function useFadeIn() {
   useEffect(() => {
@@ -71,12 +74,19 @@ function Hero() {
           <p className="mt-6 text-lg text-zinc-500 max-w-xl mx-auto leading-relaxed font-light">
             Find and remove duplicate photos on your computer.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={DOWNLOAD_URL}
+              className="btn-press inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-zinc-900 text-sm font-medium text-white hover:bg-zinc-700 shadow-lg shadow-zinc-900/20 hover:shadow-xl hover:shadow-zinc-900/25"
+            >
+              <Download className="h-4 w-4" />
+              Download for macOS
+            </a>
             <a
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-press inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-zinc-900 text-sm font-medium text-white hover:bg-zinc-700 shadow-lg shadow-zinc-900/20 hover:shadow-xl hover:shadow-zinc-900/25"
+              className="btn-press inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white text-sm font-medium text-zinc-700 border border-zinc-200 hover:bg-zinc-50 hover:border-zinc-300"
             >
               <Github className="h-4 w-4" />
               View on GitHub

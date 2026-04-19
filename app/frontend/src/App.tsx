@@ -15,13 +15,13 @@ export default function App(): React.ReactElement {
     async function waitForBackend(): Promise<void> {
       await initApiClient()
 
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 60; i++) {
         try {
           await healthApi.check()
           if (!cancelled) setBackendReady(true)
           return
         } catch {
-          await new Promise((r) => setTimeout(r, 1000))
+          await new Promise((r) => setTimeout(r, 2000))
         }
       }
     }

@@ -8,7 +8,36 @@
     "build": "electron-vite build",
     "preview": "electron-vite preview",
     "postinstall": "electron-builder install-app-deps",
-    "lint": "eslint . --fix && prettier --write \"src/**/*.{ts,tsx}\" \"electron/**/*.ts\""
+    "lint": "eslint . --fix && prettier --write \"src/**/*.{ts,tsx}\" \"electron/**/*.ts\"",
+    "package": "electron-vite build && electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.tidify.app",
+    "productName": "Tidify",
+    "mac": {
+      "category": "public.app-category.photography",
+      "target": {
+        "target": "dmg",
+        "arch": "arm64"
+      },
+      "icon": "build/icon.icns"
+    },
+    "dmg": {
+      "title": "Tidify",
+      "contents": [
+        { "x": 130, "y": 220 },
+        { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
+      ]
+    },
+    "extraResources": [
+      {
+        "from": "../backend/dist/tidify-backend",
+        "to": "backend"
+      }
+    ],
+    "files": [
+      "out/**/*"
+    ]
   },
   "dependencies": {
     "@tanstack/react-query": "^5.62.0",

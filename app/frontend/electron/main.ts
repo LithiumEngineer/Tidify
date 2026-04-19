@@ -9,10 +9,9 @@ const isDev = !app.isPackaged
 function startPythonBackend(): void {
   if (isDev) return
 
-  const backendPath = join(process.resourcesPath, 'backend/main.py')
-  const pythonCmd = join(process.resourcesPath, 'python/bin/python3')
+  const backendBin = join(process.resourcesPath, 'backend', 'tidify-backend')
 
-  pythonProcess = spawn(pythonCmd, [backendPath, '--port', String(BACKEND_PORT)], {
+  pythonProcess = spawn(backendBin, ['--port', String(BACKEND_PORT)], {
     stdio: ['pipe', 'pipe', 'pipe'],
     env: { ...process.env, TIDIFY_PORT: String(BACKEND_PORT) },
   })

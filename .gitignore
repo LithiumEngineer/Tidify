@@ -1,6 +1,7 @@
 node_modules/
 out/
 dist/
+build/
 .next/
 .env
 *.pyc
@@ -8,3 +9,4 @@ __pycache__/
 .DS_Store
 *.egg-info/
 .venv/
+*.dmg
