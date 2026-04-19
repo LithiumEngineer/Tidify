@@ -15,8 +15,8 @@ export function Sidebar(): React.ReactElement {
 
   return (
     <aside className="w-56 flex flex-col border-r bg-card">
-      <div className="drag-region h-12 flex items-center pl-[78px] pr-5 border-b">
-        <img src={logoImg} alt="Tidify logo" className="no-drag h-6 w-auto" />
+      <div className="drag-region h-12 flex items-center pl-[90px] pr-5 border-b">
+        <img src={logoImg} alt="Tidify logo" className="no-drag h-4 w-auto" />
         <h1 className="no-drag text-base font-bold tracking-tight ml-2">Tidify</h1>
       </div>
 
