@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import {
   Github,
   FolderOpen,
@@ -12,27 +12,27 @@ import {
   Shield,
   Cpu,
   ImageIcon,
-} from 'lucide-react'
+} from "lucide-react";
 
-const GITHUB_URL = 'https://github.com/LithiumEngineer/Tidify'
+const GITHUB_URL = "https://github.com/LithiumEngineer/Tidify";
 
 function useFadeIn() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
-        })
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
       },
-      { threshold: 0.15 }
-    )
-    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+      { threshold: 0.15 },
+    );
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 }
 
 export default function Home() {
-  useFadeIn()
+  useFadeIn();
 
   return (
     <main className="min-h-screen overflow-hidden">
@@ -45,7 +45,7 @@ export default function Home() {
       <Features />
       <Footer />
     </main>
-  )
+  );
 }
 
 function Divider() {
@@ -53,7 +53,7 @@ function Divider() {
     <div className="max-w-5xl mx-auto px-6">
       <div className="h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
     </div>
-  )
+  );
 }
 
 function Hero() {
@@ -94,32 +94,33 @@ function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 const steps = [
   {
     icon: FolderOpen,
-    title: 'Pick a folder',
-    description: 'Choose any directory on your machine to scan.',
-    color: 'group-hover:bg-blue-50 group-hover:border-blue-200',
-    iconColor: 'group-hover:text-blue-500',
+    title: "Pick a folder",
+    description: "Choose any directory on your machine to scan.",
+    color: "group-hover:bg-blue-50 group-hover:border-blue-200",
+    iconColor: "group-hover:text-blue-500",
   },
   {
     icon: Sparkles,
-    title: 'Find duplicates',
-    description: 'Images are embedded via CNN and matched by cosine similarity.',
-    color: 'group-hover:bg-violet-50 group-hover:border-violet-200',
-    iconColor: 'group-hover:text-violet-500',
+    title: "Find duplicates",
+    description:
+      "Images are embedded via CNN and matched by cosine similarity.",
+    color: "group-hover:bg-violet-50 group-hover:border-violet-200",
+    iconColor: "group-hover:text-violet-500",
   },
   {
     icon: Trash2,
-    title: 'Review & clean up',
-    description: 'See grouped results, keep the best, move the rest to Trash.',
-    color: 'group-hover:bg-rose-50 group-hover:border-rose-200',
-    iconColor: 'group-hover:text-rose-500',
+    title: "Review & clean up",
+    description: "See grouped results, keep the best, move the rest to Trash.",
+    color: "group-hover:bg-rose-50 group-hover:border-rose-200",
+    iconColor: "group-hover:text-rose-500",
   },
-]
+];
 
 function HowItWorks() {
   return (
@@ -132,10 +133,16 @@ function HowItWorks() {
       <div className="grid md:grid-cols-3 gap-16 md:gap-12">
         {steps.map((step, i) => (
           <div key={i} className="fade-in text-center group cursor-default">
-            <div className={`step-card inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-zinc-100 border border-zinc-200/80 mb-6 ${step.color}`}>
-              <step.icon className={`h-5 w-5 text-zinc-400 transition-colors duration-300 ${step.iconColor}`} />
+            <div
+              className={`step-card inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-zinc-100 border border-zinc-200/80 mb-6 ${step.color}`}
+            >
+              <step.icon
+                className={`h-5 w-5 text-zinc-400 transition-colors duration-300 ${step.iconColor}`}
+              />
             </div>
-            <h3 className="text-base font-medium text-zinc-900 mb-2.5">{step.title}</h3>
+            <h3 className="text-base font-medium text-zinc-900 mb-2.5">
+              {step.title}
+            </h3>
             <p className="text-sm text-zinc-500 leading-relaxed max-w-[220px] mx-auto">
               {step.description}
             </p>
@@ -143,7 +150,7 @@ function HowItWorks() {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 function TechOverview() {
@@ -174,72 +181,80 @@ function TechOverview() {
         </div>
 
         <div className="mt-14 flex flex-wrap items-center justify-center gap-2.5 text-[11px] text-zinc-400 tracking-wide">
-          {['ONNX Runtime', 'MobileNetV3', 'FAISS', 'Cosine Similarity', 'Union-Find'].map(
-            (label, i) => (
-              <span key={i} className="inline-flex items-center gap-2">
-                <span className="px-3 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/80">
-                  {label}
-                </span>
-                {i < 4 && <span className="text-zinc-300">·</span>}
+          {[
+            "ONNX Runtime",
+            "MobileNetV3",
+            "FAISS",
+            "Cosine Similarity",
+            "Union-Find",
+          ].map((label, i) => (
+            <span key={i} className="inline-flex items-center gap-2">
+              <span className="px-3 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/80">
+                {label}
               </span>
-            )
-          )}
+              {i < 4 && <span className="text-zinc-300">·</span>}
+            </span>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 const features = [
   {
     icon: SlidersHorizontal,
-    title: 'Sensitivity control',
-    description: 'Tune matching strictness — from near-exact copies to visually similar photos.',
-    hoverBg: 'hover:bg-amber-50',
-    hoverBorder: 'hover:border-amber-200',
-    hoverIcon: 'group-hover:text-amber-500',
+    title: "Sensitivity control",
+    description:
+      "Tune matching strictness — from near-exact copies to visually similar photos.",
+    hoverBg: "hover:bg-amber-50",
+    hoverBorder: "hover:border-amber-200",
+    hoverIcon: "group-hover:text-amber-500",
   },
   {
     icon: Award,
-    title: 'Quality ranking',
-    description: 'Surfaces the best version per group by resolution, sharpness, and metadata.',
-    hoverBg: 'hover:bg-emerald-50',
-    hoverBorder: 'hover:border-emerald-200',
-    hoverIcon: 'group-hover:text-emerald-500',
+    title: "Quality ranking",
+    description:
+      "Surfaces the best version per group by resolution, sharpness, and metadata.",
+    hoverBg: "hover:bg-emerald-50",
+    hoverBorder: "hover:border-emerald-200",
+    hoverIcon: "group-hover:text-emerald-500",
   },
   {
     icon: Crop,
-    title: 'Autocrop',
-    description: 'Strips borders and whitespace before comparing so padded images still match.',
-    hoverBg: 'hover:bg-sky-50',
-    hoverBorder: 'hover:border-sky-200',
-    hoverIcon: 'group-hover:text-sky-500',
+    title: "Autocrop",
+    description:
+      "Strips borders and whitespace before comparing so padded images still match.",
+    hoverBg: "hover:bg-sky-50",
+    hoverBorder: "hover:border-sky-200",
+    hoverIcon: "group-hover:text-sky-500",
   },
   {
     icon: Shield,
-    title: 'Safe by default',
-    description: 'Deletions go to Trash. Nothing is permanently removed.',
-    hoverBg: 'hover:bg-violet-50',
-    hoverBorder: 'hover:border-violet-200',
-    hoverIcon: 'group-hover:text-violet-500',
+    title: "Safe by default",
+    description: "Deletions go to Trash. Nothing is permanently removed.",
+    hoverBg: "hover:bg-violet-50",
+    hoverBorder: "hover:border-violet-200",
+    hoverIcon: "group-hover:text-violet-500",
   },
   {
     icon: Cpu,
-    title: 'Fully local',
-    description: 'Runs entirely on your machine. No cloud, no uploads, no internet required.',
-    hoverBg: 'hover:bg-rose-50',
-    hoverBorder: 'hover:border-rose-200',
-    hoverIcon: 'group-hover:text-rose-500',
+    title: "Fully local",
+    description:
+      "Runs entirely on your machine. No cloud, no uploads, no internet required.",
+    hoverBg: "hover:bg-rose-50",
+    hoverBorder: "hover:border-rose-200",
+    hoverIcon: "group-hover:text-rose-500",
   },
   {
     icon: ImageIcon,
-    title: 'HEIC support',
-    description: 'iPhone photos just work — HEIC, JPEG, PNG, WebP, and more.',
-    hoverBg: 'hover:bg-indigo-50',
-    hoverBorder: 'hover:border-indigo-200',
-    hoverIcon: 'group-hover:text-indigo-500',
+    title: "HEIC support",
+    description: "iPhone photos just work — HEIC, JPEG, PNG, WebP, and more.",
+    hoverBg: "hover:bg-indigo-50",
+    hoverBorder: "hover:border-indigo-200",
+    hoverIcon: "group-hover:text-indigo-500",
   },
-]
+];
 
 function Features() {
   return (
@@ -255,8 +270,12 @@ function Features() {
             key={i}
             className={`fade-in group feature-card rounded-2xl bg-white border border-zinc-200/80 p-6 cursor-default ${f.hoverBg} ${f.hoverBorder}`}
           >
-            <f.icon className={`h-[18px] w-[18px] text-zinc-400 mb-4 transition-colors duration-300 ${f.hoverIcon}`} />
-            <h3 className="text-sm font-medium text-zinc-900 mb-1.5">{f.title}</h3>
+            <f.icon
+              className={`h-[18px] w-[18px] text-zinc-400 mb-4 transition-colors duration-300 ${f.hoverIcon}`}
+            />
+            <h3 className="text-sm font-medium text-zinc-900 mb-1.5">
+              {f.title}
+            </h3>
             <p className="text-[13px] text-zinc-500 leading-relaxed">
               {f.description}
             </p>
@@ -264,7 +283,7 @@ function Features() {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 function Footer() {
@@ -274,7 +293,24 @@ function Footer() {
         <div className="h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent mb-10" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[13px] text-zinc-400">
-            © 2026 <a href="https://www.kevinkang.me/" target="_blank" rel="noopener noreferrer" className="underline hover:text-zinc-600 transition-colors duration-300">Kevin Kang</a> · Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer" className="underline hover:text-zinc-600 transition-colors duration-300">Apache License 2.0</a>
+            © 2026{" "}
+            <a
+              href="https://www.kevinkang.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-zinc-600 transition-colors duration-300"
+            >
+              Kevin Kang
+            </a>{" "}
+            · Licensed under the{" "}
+            <a
+              href="https://www.apache.org/licenses/LICENSE-2.0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-zinc-600 transition-colors duration-300"
+            >
+              Apache License 2.0
+            </a>
           </p>
           <a
             href={GITHUB_URL}
@@ -288,5 +324,5 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
