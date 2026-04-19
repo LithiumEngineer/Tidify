@@ -2,6 +2,7 @@
 
 BACKEND_PORT=18457
 BACKEND_PID=""
+WEBSITE_PID=""
 
 cleanup() {
   echo ""
@@ -9,6 +10,10 @@ cleanup() {
   if [ -n "$BACKEND_PID" ]; then
     kill "$BACKEND_PID" 2>/dev/null
     wait "$BACKEND_PID" 2>/dev/null
+  fi
+  if [ -n "$WEBSITE_PID" ]; then
+    kill "$WEBSITE_PID" 2>/dev/null
+    wait "$WEBSITE_PID" 2>/dev/null
   fi
   exit 0
 }
@@ -27,7 +32,7 @@ fi
 
 # Start Python backend
 echo "Starting Python backend on port $BACKEND_PORT..."
-cd "$DIR/backend"
+cd "$DIR/app/backend"
 source .venv/bin/activate
 python main.py --port "$BACKEND_PORT" &
 BACKEND_PID=$!
@@ -42,9 +47,15 @@ for i in $(seq 1 30); do
   sleep 1
 done
 
+# Start website dev server
+echo "Starting website on http://localhost:3000..."
+cd "$DIR/website"
+npm run dev &
+WEBSITE_PID=$!
+
 # Start Electron dev server
 echo "Starting Electron app..."
-cd "$DIR"
+cd "$DIR/app/frontend"
 npx electron-vite dev
 
 cleanup

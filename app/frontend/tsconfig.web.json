@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["electron-vite/client"]
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.tsx"
+  ]
+}
